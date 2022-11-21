@@ -1,0 +1,26 @@
+
+
+
+  <form  [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Url da imagem</mat-label>
+        <input style="width: 100%"  matInput type="text" formControlName="url">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Titulo do Produto</mat-label>
+      <input matInput type="text" formControlName="title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Descrição do Produto</mat-label>
+    <input matInput type="text" formControlName="description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Quantidade de vendas</mat-label>
+    <input matInput type="text" formControlName="amount">
+  </mat-form-field>
+
+    <div class="buttons">
+        <button mat-button (click)="close()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="addProduct()">{{actionButton}}</button>
+    </div>
+  </form>

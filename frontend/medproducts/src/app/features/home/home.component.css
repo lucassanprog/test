@@ -1,0 +1,70 @@
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(151, 151, 151);
+
+}
+
+.home mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-cred{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20%;
+  font-size:0.8rem;
+  color: #fff;
+  align-items: center;
+  height: 100%;
+}
+
+.user-name{
+  margin-bottom: -12px !important;
+}
+.user-perfil{
+  margin-bottom: -12px !important;
+  margin-left: 1rem;
+}
+ .icon-class{
+  font-size: 1.6rem;
+  color: #fff;
+  }
+
+
+.home main {
+  margin: auto;
+  width: 980px;
+  height: 100%;
+  padding: 20px;
+}
+
+.home main ul {
+  list-style: none;
+}
+
+.home main li {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 980px) {
+  .home main {
+    width: 100%;
+  }
+}

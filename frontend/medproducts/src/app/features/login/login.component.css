@@ -1,0 +1,45 @@
+
+
+.login {
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(57, 61, 73);
+}
+
+.login mat-card {
+  width: 380px;
+  background: rgb(151, 151, 151);
+  padding: 2rem;
+}
+
+
+.login mat-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.login mat-card-content {
+  padding-top: 20px;
+}
+
+.login mat-form-field {
+  width: 100%;
+}
+
+.login mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+.card-button{
+  width: 15rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .login mat-card {
+    width: 100%;
+  }
+}

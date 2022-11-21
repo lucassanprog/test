@@ -1,0 +1,87 @@
+<div class="home">
+  <header>
+      <mat-toolbar style="background: rgb(151, 151, 151);">
+        <img style="width: 8rem; " src="../../../assets/medgrupo.png" alt="">
+        <div class="user-cred">
+          <p class="user-name">{{currentUser.name}}  </p>
+          <p class="user-perfil" ><ic-icon [icon]="administratorIcon" ></ic-icon> {{currentUser.role}} </p>
+        </div>
+          <div >
+              <button mat-icon-button (click)="openDialog()">
+
+                  <mat-icon><p class="icon-class" ><ic-icon [icon]="addBoxIcon" ></ic-icon></p></mat-icon>
+              </button>
+              <button mat-icon-button (click)="logout()">
+                  <mat-icon><p class="icon-class" ><ic-icon [icon]="exitIcon" ></ic-icon></p></mat-icon>
+              </button>
+          </div>
+      </mat-toolbar>
+  </header>
+  <main>
+    <mat-form-field>
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="MedMaster" #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
+
+        <ng-container matColumnDef="ImageUrl">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let row">
+           <mat-card style="border-radius: 50%;background: rgb(151, 151, 151);height: 50px ; width: 50px ; display: flex; align-content: center; justify-content: center; margin: 1rem; overflow: hidden;"><img style="height: 50px  ; " [src]="row.imageUrl" alt=""></mat-card>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Title">
+          <th mat-header-cell *matHeaderCellDef> Titulo </th>
+          <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="QuantitySold">
+          <th mat-header-cell *matHeaderCellDef> Qtd Vendida </th>
+          <td mat-cell *matCellDef="let row"> {{row.quantitySold}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Opções </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editProduct(row)">
+              <mat-icon>
+              <p style="color:rgb(151, 151, 151); font-size: 1.4rem;">
+                <ic-icon [icon]="editIcon" ></ic-icon>
+              </p>
+              </mat-icon>
+            </button >
+            <button mat-icon-button (click)="deleteProduct(row.id)" >
+              <mat-icon>
+                <p style="color:rgb(92, 25, 25); font-size: 1.4rem;">
+                  <ic-icon [icon]="deleteIcon" ></ic-icon>
+                </p>
+              </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[2, 3, 4, 5]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+
+
+  </main>
+</div>
